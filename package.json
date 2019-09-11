@@ -1,0 +1,55 @@
+{
+  "name": "ReactNativeApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "start:reset": "watchman watch-del-all && react-native start --reset-cache",
+    "test": "jest",
+    "lint": "eslint .",
+    "run:android": "react-native run-android",
+    "run:android:release": "react-native run-android --variant=release",
+    "run:android:wix": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
+    "bundle:android": "cd android && ./gradlew bundleRelease",
+    "uninstall:android": "adb uninstall com.reactnativeapp",
+    "reverse": "adb reverse tcp:8081 tcp:8081",
+    "log:android": "react-native log-android",
+    "keystore:debug": "cd android/app && keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000",
+    "keystore:release": "cd android/app && $ keytool -genkeypair -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000",
+    "androidStudio": "open -a '/Applications/Android Studio.app' ./android",
+    "run:ios": "yarn pod && react-native run-ios",
+    "run:iosx": "react-native run-ios --simulator='iPhone X'",
+    "run:ios8": "react-native run-ios --simulator='iPhone 8'",
+    "run:ios5s": "react-native run-ios --simulator='iPhone 5s'",
+    "xcode": "open ios/ReactNativeApp.xcodeproj",
+    "xcworkspace": "open ios/ReactNativeApp.xcworkspace",
+    "pod": "cd ios && pod install",
+    "prepublish": "",
+    "postinstall": "",
+    "setSplash": "yo rn-toolbox:assets --splash resources/splash.png --android",
+    "setIcon": "yo rn-toolbox:assets --icon resources/icon.png --ios"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-native": "0.60.5",
+    "react-native-navigation": "^3.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.2",
+    "@types/react-native": "^0.60.11",
+    "@types/react-test-renderer": "^16.9.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-test-renderer": "16.8.6",
+    "typescript": "^3.6.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
