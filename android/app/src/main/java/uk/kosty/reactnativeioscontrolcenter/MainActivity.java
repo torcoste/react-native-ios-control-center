@@ -1,4 +1,4 @@
-package com.reactnativeapp;
+package uk.kosty.reactnativeioscontrolcenter;
 
 import android.os.Bundle;
 

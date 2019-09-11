@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'ReactNativeApp' do
-  # Pods for ReactNativeApp
+target 'ControlCenter' do
+  # Pods for ControlCenter
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -29,7 +29,9 @@ target 'ReactNativeApp' do
 
   pod 'ReactNativeNavigation', :podspec => '../node_modules/react-native-navigation/ReactNativeNavigation.podspec'
 
-  target 'ReactNativeAppTests' do
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  target 'ControlCenterTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -37,10 +39,10 @@ target 'ReactNativeApp' do
   use_native_modules!
 end
 
-target 'ReactNativeApp-tvOS' do
-  # Pods for ReactNativeApp-tvOS
+target 'ControlCenter-tvOS' do
+  # Pods for ControlCenter-tvOS
 
-  target 'ReactNativeApp-tvOSTests' do
+  target 'ControlCenter-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

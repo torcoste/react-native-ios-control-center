@@ -1,5 +1,5 @@
 {
-  "name": "ReactNativeApp",
+  "name": "ControlCenter",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -32,7 +32,8 @@
   "dependencies": {
     "react": "16.8.6",
     "react-native": "0.60.5",
-    "react-native-navigation": "^3.1.2"
+    "react-native-navigation": "^3.1.2",
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -41,6 +42,7 @@
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-native": "^0.60.11",
+    "@types/react-native-vector-icons": "^6.4.2",
     "@types/react-test-renderer": "^16.9.0",
     "babel-jest": "^24.9.0",
     "eslint": "^6.3.0",
