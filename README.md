@@ -6,6 +6,6 @@ Developed by Victor Kostyuk as a test task and is intended only to demonstrate d
 
 ## TODO:
 
-- [] Animations
-- [] Orientation: only portrait
-- [] Slider controlers
+- [ ] Animations
+- [ ] Orientation: only portrait
+- [ ] Slider controlers
