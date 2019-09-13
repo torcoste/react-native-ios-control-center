@@ -1,6 +1,11 @@
 import {Navigation} from 'react-native-navigation';
-import ApplicationWrapper from './components/ApplicationWrapper';
-import {Screens, HOME_SCREEN, ABOUT_SCREEN} from './screens';
+import ApplicationWrapper from './components/Wrappers/ApplicationWrapper';
+import {
+  Screens,
+  HOME_SCREEN,
+  NETWORK_CONTROL_SCREEN,
+  MUSIC_CONTROL_SCREEN,
+} from './screens';
 
 export default class Application {
   private static _instance: Application;
@@ -10,15 +15,24 @@ export default class Application {
     return Application._instance;
   }
 
-  navigateAbout(componentId: string) {
-    Navigation.push(componentId, {
+  navigateNetworkControl(componentId: string) {
+    Navigation.showOverlay({
       component: {
-        name: ABOUT_SCREEN,
-        options: {
-          topBar: {title: {text: 'About'}},
-        },
+        name: NETWORK_CONTROL_SCREEN,
       },
     });
+  }
+
+  navigateMusicControl(componentId: string) {
+    Navigation.showOverlay({
+      component: {
+        name: MUSIC_CONTROL_SCREEN,
+      },
+    });
+  }
+
+  navigateDismissOverlay(componentId: string) {
+    Navigation.dismissOverlay(componentId);
   }
 
   registry() {
@@ -27,6 +41,14 @@ export default class Application {
     );
 
     Navigation.events().registerAppLaunchedListener(() => {
+      Navigation.setDefaultOptions({
+        topBar: {
+          visible: false,
+        },
+        statusBar: {},
+        animations: {},
+      });
+
       Navigation.setRoot({
         root: {
           stack: {
@@ -34,9 +56,6 @@ export default class Application {
               {
                 component: {
                   name: HOME_SCREEN,
-                  options: {
-                    topBar: {title: {text: 'Home'}},
-                  },
                 },
               },
             ],

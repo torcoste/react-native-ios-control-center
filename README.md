@@ -1,23 +1,11 @@
-# react-native-typescript
-React Native Typescript template
+# react-native-ios-control-center
 
-## Set icon
+A copy of the iOS control center implemented on React Native.
 
-### iOS
-``` yarn setIcon ```
-### Android
-Open Android Studio
-``` yarn androidStudio ```
-Right click on the `app` folder, then click on `New` and then click on `Image Asset`. If you don't see this menu, be sure that you got the latest gradle version (should work with gradle >=3.4.2)
-In the `Icon Type` field select `Launcher Icons (Adaptative and Legacy)`
-In the `path` field, select your image file
-Once done, click on the `Next` button and then on the `finish` button
+Developed by Victor Kostyuk as a test task and is intended only to demonstrate developer skills.
 
-## Set splash
+## TODO:
 
-### Android
-``` yarn setSplash ```
-### iOS
-Open XCode project
-``` yarn xcode ```
-and change `LaunchScreen.xib` as you want
+- [] Animations
+- [] Orientation: only portrait
+- [] Slider controlers

@@ -1,9 +1,12 @@
 import HomeScreen from './HomeScreen';
-import AboutScreen from './AboutScreen';
+import NetworkControlScreen from './NetworkControlScreen';
+import MusicControlScreen from './MusicControlScreen';
 
 export const HOME_SCREEN = 'HomeScreen';
-export const ABOUT_SCREEN = 'AboutScreen';
+export const NETWORK_CONTROL_SCREEN = 'NetworkControlScreen';
+export const MUSIC_CONTROL_SCREEN = 'MusicControlScreen';
 
 export const Screens = new Map();
 Screens.set(HOME_SCREEN, HomeScreen);
-Screens.set(ABOUT_SCREEN, AboutScreen);
+Screens.set(NETWORK_CONTROL_SCREEN, NetworkControlScreen);
+Screens.set(MUSIC_CONTROL_SCREEN, MusicControlScreen);
