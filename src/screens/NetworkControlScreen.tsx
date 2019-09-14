@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, View, Text, TouchableWithoutFeedback, ImageBackground} from 'react-native';
 
 import {ScreenProps} from '../types/Application.d';
 import Theme from '../Theme';
@@ -13,24 +13,26 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
   render() {
     return (
       <TouchableWithoutFeedback onPress={this.onDismiss}>
-        <View style={styles.container}>
+        <ImageBackground
+          style={styles.backgroundImage}
+          blurRadius={3}
+          source={Theme.Images.backgroundImage}>
           <TouchableWithoutFeedback>
             <View style={styles.body}>
               <Text>NetworkControlScreen</Text>
             </View>
           </TouchableWithoutFeedback>
-        </View>
+        </ImageBackground>
       </TouchableWithoutFeedback>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Theme.Colors.transparent,
+  backgroundImage: {
+    flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
-    flex: 1,
   },
   body: {
     backgroundColor: 'white',

@@ -1,35 +1,56 @@
 import React from 'react';
 import {
   StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
+  TouchableWithoutFeedback,
+  TouchableWithoutFeedbackProps,
+  Animated,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Theme from '../../Theme';
 
-export interface SliderControlProps extends TouchableOpacityProps {
+export interface SliderControlProps extends TouchableWithoutFeedbackProps {
   icon: string;
 }
 
-interface State {
-  level: number;
-}
+export default class SliderControl extends React.Component<SliderControlProps> {
+  constructor(props: SliderControlProps) {
+    super(props);
+    this.handlePressIn = this.handlePressIn.bind(this);
+    this.handlePressOut = this.handlePressOut.bind(this);
+    this.animatedScaleValue = new Animated.Value(
+      Theme.Animations.sliders.default.initialValue,
+    );
+  }
 
-export default class SliderControl extends React.Component<
-  SliderControlProps,
-  State
-> {
-  state = {level: 50};
+  animatedScaleValue: Animated.Value | Animated.ValueXY;
+
+  handlePressIn() {
+    Animated.spring(this.animatedScaleValue, {
+      toValue: Theme.Animations.sliders.default.pressIn.toValue,
+    }).start();
+  }
+
+  handlePressOut() {
+    Animated.spring(this.animatedScaleValue, {
+      toValue: Theme.Animations.sliders.default.pressOut.toValue,
+      friction: Theme.Animations.sliders.default.pressOut.friction,
+      tension: Theme.Animations.sliders.default.pressOut.tension,
+    }).start();
+  }
 
   render() {
     const {icon, style} = this.props;
-    const {level} = this.state;
+    const animatedStyle = {transform: [{scale: this.animatedScaleValue}]};
 
     return (
-      <TouchableOpacity style={[styles.container, style]}>
-        <Icon name={icon} style={styles.icon} />
-      </TouchableOpacity>
+      <TouchableWithoutFeedback
+        onPressIn={this.handlePressIn}
+        onPressOut={this.handlePressOut}>
+        <Animated.View style={[styles.container, style, animatedStyle]}>
+          <Icon name={icon} style={styles.icon} />
+        </Animated.View>
+      </TouchableWithoutFeedback>
     );
   }
 }

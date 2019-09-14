@@ -1,15 +1,17 @@
 import React from 'react';
 import {
   StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
   Text,
+  TouchableWithoutFeedback,
+  TouchableWithoutFeedbackProps,
+  Animated,
+  GestureResponderEvent,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Theme from '../../Theme';
 
-export interface ButtonBaseProps extends TouchableOpacityProps {
+export interface ButtonBaseProps extends TouchableWithoutFeedbackProps {
   icon: string;
   iconDisabled?: string;
   iconSize?: number;
@@ -21,6 +23,7 @@ export interface ButtonBaseProps extends TouchableOpacityProps {
   colorEnableText?: string;
   colorDisableText?: string;
   isInitialEnabled?: boolean;
+  animatedStyle?: any; // TODO: make proper interface
 }
 
 interface State {
@@ -37,13 +40,15 @@ export default class ButtonBase extends React.Component<
       : false,
   };
 
-  _onPress = () => {
+  _onPress = (event: GestureResponderEvent) => {
     this.setState({isEnabled: !this.state.isEnabled});
+    this.props.onPress ? this.props.onPress(event) : null;
   };
 
   render() {
     const {
       style,
+      animatedStyle,
       icon,
       iconDisabled,
       iconSize = Theme.Sizes.icon.default,
@@ -67,21 +72,27 @@ export default class ButtonBase extends React.Component<
     ];
 
     return (
-      <TouchableOpacity
-        onPressOut={this._onPress}
-        style={[
-          styles.container,
-          style,
-          {backgroundColor: isEnabled ? colorEnableButton : colorDisableButton},
-        ]}>
-        <Icon
-          name={isEnabled ? icon : iconDisabled ? iconDisabled : icon}
-          size={iconSize}
-          color={isEnabled ? colorEnableIcon : colorDisableIcon}
-          solid
-        />
-        {text ? <Text style={textStyle}>{text}</Text> : null}
-      </TouchableOpacity>
+      <TouchableWithoutFeedback {...this.props} onPress={this._onPress}>
+        <Animated.View
+          style={[
+            styles.container,
+            style,
+            animatedStyle,
+            {
+              backgroundColor: isEnabled
+                ? colorEnableButton
+                : colorDisableButton,
+            },
+          ]}>
+          <Icon
+            name={isEnabled ? icon : iconDisabled ? iconDisabled : icon}
+            size={iconSize}
+            color={isEnabled ? colorEnableIcon : colorDisableIcon}
+            solid
+          />
+          {text ? <Text style={textStyle}>{text}</Text> : null}
+        </Animated.View>
+      </TouchableWithoutFeedback>
     );
   }
 }

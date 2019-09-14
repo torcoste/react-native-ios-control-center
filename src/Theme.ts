@@ -110,6 +110,74 @@ class Theme {
       icon: 'rgba(255, 255, 255, 0.8)',
     },
   };
+
+  readonly Animations: ITheme['Animations'] = {
+    sections: {
+      default: {
+        initialValue: 1,
+        pressIn: {
+          toValue: 1.2,
+        },
+        pressOut: {
+          toValue: 1,
+          friction: 2,
+          tension: 10,
+        },
+      },
+    },
+
+    sliders: { // TODO: another animation
+      default: {
+        initialValue: 1,
+        pressIn: {
+          toValue: 1.2,
+        },
+        pressOut: {
+          toValue: 1,
+          friction: 2,
+          tension: 10,
+        },
+      },
+    },
+
+    buttons: {
+      default: {
+        rounded: { // TODO: another animation
+          initialValue: 1,
+          pressIn: {
+            toValue: 1.2,
+          },
+          pressOut: {
+            toValue: 1,
+            friction: 2,
+            tension: 10,
+          },
+        },
+        squared: {
+          initialValue: 1,
+          pressIn: {
+            toValue: 1.2,
+          },
+          pressOut: {
+            toValue: 1,
+            friction: 2,
+            tension: 10,
+          },
+        },
+        rectangled: {
+          initialValue: 1,
+          pressIn: {
+            toValue: 1.2,
+          },
+          pressOut: {
+            toValue: 1,
+            friction: 2,
+            tension: 10,
+          },
+        },
+      },
+    },
+  };
 }
 
 export default new Theme();

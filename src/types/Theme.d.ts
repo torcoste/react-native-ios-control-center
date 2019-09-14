@@ -12,7 +12,7 @@ export interface ITheme {
     sm: number;
     dynamic: {
       sliderControlIcon: number;
-    }
+    };
   };
 
   Dimensions: {
@@ -108,6 +108,72 @@ export interface ITheme {
     sliderControl: {
       background: string;
       icon: string;
+    };
+  };
+
+  Animations: {
+    sections: {
+      default: {
+        initialValue: number;
+        pressIn: {
+          toValue: number;
+        };
+        pressOut: {
+          toValue: number;
+          friction: number;
+          tension: number;
+        };
+      };
+    };
+    sliders: {
+      default: {
+        initialValue: number;
+        pressIn: {
+          toValue: number;
+        };
+        pressOut: {
+          toValue: number;
+          friction: number;
+          tension: number;
+        };
+      };
+    };
+    buttons: {
+      default: {
+        rounded: {
+          initialValue: number;
+          pressIn: {
+            toValue: number;
+          };
+          pressOut: {
+            toValue: number;
+            friction: number;
+            tension: number;
+          };
+        };
+        squared: {
+          initialValue: number;
+          pressIn: {
+            toValue: number;
+          };
+          pressOut: {
+            toValue: number;
+            friction: number;
+            tension: number;
+          };
+        };
+        rectangled: {
+          initialValue: number;
+          pressIn: {
+            toValue: number;
+          };
+          pressOut: {
+            toValue: number;
+            friction: number;
+            tension: number;
+          };
+        };
+      };
     };
   };
 }
