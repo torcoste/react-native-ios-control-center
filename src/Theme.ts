@@ -122,8 +122,8 @@ class Theme {
     screens: {
       musicControl: {
         songImageWrapper: 'rgba(255, 255, 255, 0.2)',
-      }
-    }
+      },
+    },
   };
 
   readonly Animations: ITheme['Animations'] = {

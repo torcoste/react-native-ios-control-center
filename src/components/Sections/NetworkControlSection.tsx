@@ -17,7 +17,9 @@ export default class NetworkControlSection extends React.Component<Props> {
     super(props);
     this.handlePressIn = this.handlePressIn.bind(this);
     this.handlePressOut = this.handlePressOut.bind(this);
-    this.animatedScaleValue = new Animated.Value(Theme.Animations.sections.default.initialValue);
+    this.animatedScaleValue = new Animated.Value(
+      Theme.Animations.sections.default.initialValue,
+    );
   }
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
@@ -37,7 +39,7 @@ export default class NetworkControlSection extends React.Component<Props> {
       useNativeDriver: true,
     }).start();
   }
-  
+
   render() {
     const {style} = this.props;
     const animatedStyle = {transform: [{scale: this.animatedScaleValue}]};
@@ -51,7 +53,7 @@ export default class NetworkControlSection extends React.Component<Props> {
           <Row>
             <ButtonRounded
               icon={'plane'}
-              colorEnableButton={
+              colorEnabledButton={
                 Theme.Colors.buttons.custom.rounded.plane.enabledBackground
               }
               onPressIn={this.handlePressIn}
@@ -60,10 +62,10 @@ export default class NetworkControlSection extends React.Component<Props> {
             />
             <ButtonRounded
               icon={'broadcast-tower'}
-              colorEnableButton={
+              colorEnabledButton={
                 Theme.Colors.buttons.custom.rounded.mobileData.enabledBackground
               }
-              isInitialEnabled
+              initiallyEnabled
               onPressIn={this.handlePressIn}
               onPressOut={this.handlePressOut}
               onLongPress={this.props.onLongPress}
@@ -72,14 +74,14 @@ export default class NetworkControlSection extends React.Component<Props> {
           <Row>
             <ButtonRounded
               icon={'wifi'}
-              colorDisableButton={
+              colorDisabledButton={
                 Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                   .disabledBackground
               }
-              colorDisableIcon={
+              colorDisabledIcon={
                 Theme.Colors.buttons.custom.rounded.wifi_bluetooth.disabledIcon
               }
-              isInitialEnabled
+              initiallyEnabled
               onPressIn={this.handlePressIn}
               onPressOut={this.handlePressOut}
               onLongPress={this.props.onLongPress}
@@ -87,14 +89,14 @@ export default class NetworkControlSection extends React.Component<Props> {
             <ButtonRounded
               icon={'bluetooth-b'}
               iconSize={Theme.Sizes.icon.custom.bluetooth}
-              colorDisableButton={
+              colorDisabledButton={
                 Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                   .disabledBackground
               }
-              colorDisableIcon={
+              colorDisabledIcon={
                 Theme.Colors.buttons.custom.rounded.wifi_bluetooth.disabledIcon
               }
-              isInitialEnabled
+              initiallyEnabled
               onPressIn={this.handlePressIn}
               onPressOut={this.handlePressOut}
               onLongPress={this.props.onLongPress}

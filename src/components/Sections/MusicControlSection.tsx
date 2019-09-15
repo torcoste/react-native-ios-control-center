@@ -18,7 +18,9 @@ export default class NetworkControlSection extends React.Component<Props> {
     super(props);
     this.handlePressIn = this.handlePressIn.bind(this);
     this.handlePressOut = this.handlePressOut.bind(this);
-    this.animatedScaleValue = new Animated.Value(Theme.Animations.sections.default.initialValue);
+    this.animatedScaleValue = new Animated.Value(
+      Theme.Animations.sections.default.initialValue,
+    );
   }
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
@@ -38,7 +40,7 @@ export default class NetworkControlSection extends React.Component<Props> {
       useNativeDriver: true,
     }).start();
   }
-  
+
   render() {
     const {style} = this.props;
     const animatedStyle = {transform: [{scale: this.animatedScaleValue}]};

@@ -19,13 +19,13 @@ export interface ButtonRoundedWithCaptionProps extends TouchableOpacityProps {
   iconSize?: number;
   text?: string;
   textStyle?: StyleProp<TextStyle>;
-  colorEnableIcon?: string;
-  colorEnableButton?: string;
-  colorDisableIcon?: string;
-  colorDisableButton?: string;
-  colorEnableText?: string;
-  colorDisableText?: string;
-  isInitialEnabled?: boolean;
+  colorEnabledIcon?: string;
+  colorEnabledButton?: string;
+  colorDisabledIcon?: string;
+  colorDisabledButton?: string;
+  colorEnabledText?: string;
+  colorDisabledText?: string;
+  initiallyEnabled?: boolean;
 }
 
 interface State {
@@ -37,8 +37,8 @@ export default class ButtonRoundedWithCaption extends React.Component<
   State
 > {
   state = {
-    isEnabled: this.props.isInitialEnabled
-      ? this.props.isInitialEnabled
+    isEnabled: this.props.initiallyEnabled
+      ? this.props.initiallyEnabled
       : false,
   };
 
@@ -53,24 +53,24 @@ export default class ButtonRoundedWithCaption extends React.Component<
       icon,
       iconDisabled,
       iconSize = Theme.Sizes.icon.rounded,
-      colorEnableButton = Theme.Colors.buttons.default.rounded
+      colorEnabledButton = Theme.Colors.buttons.default.rounded
         .enabledBackground,
-      colorEnableIcon = Theme.Colors.buttons.default.rounded.enabledIcon,
-      colorDisableButton = Theme.Colors.buttons.default.rounded
+      colorEnabledIcon = Theme.Colors.buttons.default.rounded.enabledIcon,
+      colorDisabledButton = Theme.Colors.buttons.default.rounded
         .disabledBackground,
-      colorDisableIcon = Theme.Colors.buttons.default.rounded.disabledIcon,
-      colorEnableText,
-      colorDisableText,
+      colorDisabledIcon = Theme.Colors.buttons.default.rounded.disabledIcon,
+      colorEnabledText,
+      colorDisabledText,
       text,
     } = this.props;
     const {isEnabled} = this.state;
 
     const textColors = {
-      enabled: colorEnableText
-        ? colorEnableText
+      enabled: colorEnabledText
+        ? colorEnabledText
         : Theme.Colors.buttons.default.rounded.enabledIcon,
-      disabled: colorDisableText
-        ? colorDisableText
+      disabled: colorDisabledText
+        ? colorDisabledText
         : Theme.Colors.buttons.default.rounded.disabledIcon,
     };
     const textStyle: StyleProp<TextStyle> = [
@@ -89,14 +89,14 @@ export default class ButtonRoundedWithCaption extends React.Component<
             style,
             {
               backgroundColor: isEnabled
-                ? colorEnableButton
-                : colorDisableButton,
+                ? colorEnabledButton
+                : colorDisabledButton,
             },
           ]}>
           <Icon
             name={isEnabled ? icon : iconDisabled ? iconDisabled : icon}
             size={iconSize}
-            color={isEnabled ? colorEnableIcon : colorDisableIcon}
+            color={isEnabled ? colorEnabledIcon : colorDisabledIcon}
             solid
           />
         </TouchableOpacity>

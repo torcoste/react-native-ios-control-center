@@ -13,6 +13,6 @@ export default (props: Props) => (
 
 const styles = StyleSheet.create({
   flex: {
-    flex: 1
+    flex: 1,
   },
 });

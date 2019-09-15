@@ -19,13 +19,13 @@ export interface ButtonBaseProps extends TouchableWithoutFeedbackProps {
   iconSize?: number;
   text?: string;
   textStyle?: StyleProp<TextStyle>;
-  colorEnableIcon: string;
-  colorEnableButton: string;
-  colorDisableIcon: string;
-  colorDisableButton: string;
-  colorEnableText?: string;
-  colorDisableText?: string;
-  isInitialEnabled?: boolean;
+  colorEnabledIcon: string;
+  colorEnabledButton: string;
+  colorDisabledIcon: string;
+  colorDisabledButton: string;
+  colorEnabledText?: string;
+  colorDisabledText?: string;
+  initiallyEnabled?: boolean;
   animatedStyle?: any; // TODO: make proper interface
 }
 
@@ -38,8 +38,8 @@ export default class ButtonBase extends React.Component<
   State
 > {
   state = {
-    isEnabled: this.props.isInitialEnabled
-      ? this.props.isInitialEnabled
+    isEnabled: this.props.initiallyEnabled
+      ? this.props.initiallyEnabled
       : false,
   };
 
@@ -55,20 +55,20 @@ export default class ButtonBase extends React.Component<
       icon,
       iconDisabled,
       iconSize = Theme.Sizes.icon.default,
-      colorEnableButton,
-      colorEnableIcon,
-      colorDisableButton,
-      colorDisableIcon,
-      colorEnableText,
-      colorDisableText,
+      colorEnabledButton,
+      colorEnabledIcon,
+      colorDisabledButton,
+      colorDisabledIcon,
+      colorEnabledText,
+      colorDisabledText,
       text,
       textStyle,
     } = this.props;
     const {isEnabled} = this.state;
 
     const textColors = {
-      enabled: colorEnableText ? colorEnableText : colorEnableIcon,
-      disabled: colorDisableText ? colorDisableText : colorDisableIcon,
+      enabled: colorEnabledText ? colorEnabledText : colorEnabledIcon,
+      disabled: colorDisabledText ? colorDisabledText : colorDisabledIcon,
     };
     const _textStyle: StyleProp<TextStyle> = [
       styles.text,
@@ -84,14 +84,14 @@ export default class ButtonBase extends React.Component<
             animatedStyle,
             {
               backgroundColor: isEnabled
-                ? colorEnableButton
-                : colorDisableButton,
+                ? colorEnabledButton
+                : colorDisabledButton,
             },
           ]}>
           <Icon
             name={isEnabled ? icon : iconDisabled ? iconDisabled : icon}
             size={iconSize}
-            color={isEnabled ? colorEnableIcon : colorDisableIcon}
+            color={isEnabled ? colorEnabledIcon : colorDisabledIcon}
             solid
           />
           {text ? <Text style={[_textStyle, textStyle]}>{text}</Text> : null}

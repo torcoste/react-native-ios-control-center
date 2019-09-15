@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  ImageBackground,
-  StatusBar,
-} from 'react-native';
+import {View, StyleSheet, ImageBackground, StatusBar} from 'react-native';
 import {ScreenProps} from '../types/Application.d';
 
 import ButtonSquared from '../components/Buttons/ButtonSquared';
@@ -89,17 +84,17 @@ export default class HomeScreen extends React.Component<ScreenProps> {
             <ButtonSquared
               icon={'microphone'}
               iconDisabled={'microphone-slash'}
-              isInitialEnabled
+              initiallyEnabled
             />
             <ButtonSquared
               icon={'phone'}
               iconDisabled={'phone-slash'}
-              isInitialEnabled
+              initiallyEnabled
             />
             <ButtonSquared
               icon={'bell'}
               iconDisabled={'bell-slash'}
-              isInitialEnabled
+              initiallyEnabled
             />
             <ButtonSquared icon={'github'} />
           </Row>

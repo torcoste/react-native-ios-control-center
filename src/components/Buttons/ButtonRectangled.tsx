@@ -15,23 +15,27 @@ export interface ButtonRectangledProps {
   text: string;
   iconDisabled?: string;
   iconSize?: number;
-  colorEnableIcon?: string;
-  colorEnableButton?: string;
-  colorDisableIcon?: string;
-  colorDisableButton?: string;
-  colorEnableText?: string;
-  colorDisableText?: string;
-  isInitialEnabled?: boolean;
+  colorEnabledIcon?: string;
+  colorEnabledButton?: string;
+  colorDisabledIcon?: string;
+  colorDisabledButton?: string;
+  colorEnabledText?: string;
+  colorDisabledText?: string;
+  initiallyEnabled?: boolean;
   style?: StyleProp<ViewStyle>;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
-export default class ButtonRectangled extends React.Component<ButtonRectangledProps> {
+export default class ButtonRectangled extends React.Component<
+  ButtonRectangledProps
+> {
   constructor(props: ButtonRectangledProps) {
     super(props);
     this.handlePressIn = this.handlePressIn.bind(this);
     this.handlePressOut = this.handlePressOut.bind(this);
-    this.animatedScaleValue = new Animated.Value(Theme.Animations.buttons.default.rectangled.initialValue);
+    this.animatedScaleValue = new Animated.Value(
+      Theme.Animations.buttons.default.rectangled.initialValue,
+    );
   }
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
@@ -59,16 +63,16 @@ export default class ButtonRectangled extends React.Component<ButtonRectangledPr
     return (
       <ButtonBase
         iconSize={Theme.Sizes.icon.rectangled}
-        colorDisableButton={
+        colorDisabledButton={
           Theme.Colors.buttons.default.rectangled.disabledBackground
         }
-        colorEnableButton={
+        colorEnabledButton={
           Theme.Colors.buttons.default.rectangled.enabledBackground
         }
-        colorDisableIcon={Theme.Colors.buttons.default.rectangled.disabledIcon}
-        colorEnableIcon={Theme.Colors.buttons.default.rectangled.enabledIcon}
-        colorDisableText={Theme.Colors.buttons.default.rectangled.disabledText}
-        colorEnableText={Theme.Colors.buttons.default.rectangled.enabledText}
+        colorDisabledIcon={Theme.Colors.buttons.default.rectangled.disabledIcon}
+        colorEnabledIcon={Theme.Colors.buttons.default.rectangled.enabledIcon}
+        colorDisabledText={Theme.Colors.buttons.default.rectangled.disabledText}
+        colorEnabledText={Theme.Colors.buttons.default.rectangled.enabledText}
         {...this.props}
         style={[styles.rectangledButton, style]}
         animatedStyle={animatedStyle}

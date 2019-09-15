@@ -14,13 +14,13 @@ export interface ButtonSquaredProps {
   icon: string;
   iconDisabled?: string;
   iconSize?: number;
-  colorEnableIcon?: string;
-  colorEnableButton?: string;
-  colorDisableIcon?: string;
-  colorDisableButton?: string;
-  colorEnableText?: string;
-  colorDisableText?: string;
-  isInitialEnabled?: boolean;
+  colorEnabledIcon?: string;
+  colorEnabledButton?: string;
+  colorDisabledIcon?: string;
+  colorDisabledButton?: string;
+  colorEnabledText?: string;
+  colorDisabledText?: string;
+  initiallyEnabled?: boolean;
   style?: StyleProp<ViewStyle>;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
@@ -30,7 +30,9 @@ export default class ButtonSquared extends React.Component<ButtonSquaredProps> {
     super(props);
     this.handlePressIn = this.handlePressIn.bind(this);
     this.handlePressOut = this.handlePressOut.bind(this);
-    this.animatedScaleValue = new Animated.Value(Theme.Animations.buttons.default.squared.initialValue);
+    this.animatedScaleValue = new Animated.Value(
+      Theme.Animations.buttons.default.squared.initialValue,
+    );
   }
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
@@ -58,14 +60,14 @@ export default class ButtonSquared extends React.Component<ButtonSquaredProps> {
     return (
       <ButtonBase
         iconSize={Theme.Sizes.icon.squared}
-        colorDisableButton={
+        colorDisabledButton={
           Theme.Colors.buttons.default.squared.disabledBackground
         }
-        colorEnableButton={
+        colorEnabledButton={
           Theme.Colors.buttons.default.squared.enabledBackground
         }
-        colorDisableIcon={Theme.Colors.buttons.default.squared.disabledIcon}
-        colorEnableIcon={Theme.Colors.buttons.default.squared.enabledIcon}
+        colorDisabledIcon={Theme.Colors.buttons.default.squared.disabledIcon}
+        colorEnabledIcon={Theme.Colors.buttons.default.squared.enabledIcon}
         {...this.props}
         style={[styles.roundedButton, style]}
         text={undefined}

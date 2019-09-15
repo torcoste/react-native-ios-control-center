@@ -162,58 +162,58 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
                 <ButtonRoundedWithCaption
                   icon={'plane'}
                   text={'Plane mode'}
-                  colorEnableButton={
+                  colorEnabledButton={
                     Theme.Colors.buttons.custom.rounded.plane.enabledBackground
                   }
                 />
                 <ButtonRoundedWithCaption
                   icon={'broadcast-tower'}
                   text={'Mobile network'}
-                  colorEnableButton={
+                  colorEnabledButton={
                     Theme.Colors.buttons.custom.rounded.mobileData
                       .enabledBackground
                   }
-                  isInitialEnabled
+                  initiallyEnabled
                 />
               </Row>
               <Row>
                 <ButtonRoundedWithCaption
                   icon={'wifi'}
                   text={'Wi-Fi'}
-                  colorDisableButton={
+                  colorDisabledButton={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledBackground
                   }
-                  colorDisableIcon={
+                  colorDisabledIcon={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledIcon
                   }
-                  isInitialEnabled
+                  initiallyEnabled
                 />
                 <ButtonRoundedWithCaption
                   icon={'bluetooth-b'}
                   text={'Bluetooth'}
                   iconSize={Theme.Sizes.icon.custom.bluetooth}
-                  colorDisableButton={
+                  colorDisabledButton={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledBackground
                   }
-                  colorDisableIcon={
+                  colorDisabledIcon={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledIcon
                   }
-                  isInitialEnabled
+                  initiallyEnabled
                 />
               </Row>
               <Row style={{justifyContent: 'space-between'}}>
                 <ButtonRoundedWithCaption
                   icon={'retweet'}
                   text={'AirDrop'}
-                  colorDisableButton={
+                  colorDisabledButton={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledBackground
                   }
-                  colorDisableIcon={
+                  colorDisabledIcon={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledIcon
                   }
@@ -222,11 +222,11 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
                   icon={'creative-commons-share'}
                   text={'HotSpot'}
                   iconSize={Theme.Sizes.icon.custom.bluetooth}
-                  colorDisableButton={
+                  colorDisabledButton={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledBackground
                   }
-                  colorDisableIcon={
+                  colorDisabledIcon={
                     Theme.Colors.buttons.custom.rounded.wifi_bluetooth
                       .disabledIcon
                   }
@@ -242,9 +242,9 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   backgroundImage: {
     width: Theme.Dimensions.screenWidth,
