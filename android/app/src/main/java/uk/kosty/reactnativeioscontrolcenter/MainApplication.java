@@ -7,7 +7,6 @@ import com.facebook.react.PackageList; // TODO: optimization. is it need?
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory; // TODO: optimization. is it need?
 import com.facebook.react.bridge.JavaScriptExecutorFactory; // TODO: optimization. is it need?
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage; // TODO: optimization. is it need?s
@@ -42,7 +41,6 @@ public class MainApplication extends NavigationApplication {
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
-            new VectorIconsPackage()
         );
     }
 
