@@ -1,5 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, ImageBackground} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  StatusBar,
+} from 'react-native';
 import {ScreenProps} from '../types/Application.d';
 
 import ButtonSquared from '../components/Buttons/ButtonSquared';
@@ -26,10 +31,28 @@ export default class HomeScreen extends React.Component<ScreenProps> {
     return (
       <ImageBackground
         style={styles.backgroundImage}
-        blurRadius={3}
+        blurRadius={10}
         source={Theme.Images.backgroundImage}>
         <View style={styles.controlsBoardWrapper}>
-          <Row>
+          <Row
+            onLayout={event => {
+              const layout = event.nativeEvent.layout;
+              // В данном фрагменте кода задаются значения для анимации на основе реальной позиции элементов на экране
+              // y - расстояние от центра экрана до View с ControlSection's
+              let y =
+                Theme.Dimensions.screenHeight / 2 -
+                (layout.height / 2 + layout.y);
+              y = StatusBar.currentHeight ? y - StatusBar.currentHeight : y;
+              Theme.Animations.screens.musicControl.onUnmount.translate.Y.toValue = -y;
+              Theme.Animations.screens.musicControl.initial.translateYValue = -y;
+              Theme.Animations.screens.networkControl.onUnmount.translate.Y.toValue = -y;
+              Theme.Animations.screens.networkControl.initial.translateYValue = -y;
+              const x = layout.width / 4;
+              Theme.Animations.screens.musicControl.onUnmount.translate.X.toValue = x;
+              Theme.Animations.screens.musicControl.initial.translateXValue = x;
+              Theme.Animations.screens.networkControl.onUnmount.translate.X.toValue = -x;
+              Theme.Animations.screens.networkControl.initial.translateXValue = -x;
+            }}>
             <NetworkControlSection
               onLongPress={this.onLongPressNetworkControlSection}
               style={styles.flex}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, ViewStyle, StyleProp} from 'react-native';
+import {StyleSheet, ViewStyle, StyleProp, GestureResponderEvent} from 'react-native';
 
 import ButtonBase from './ButtonBase';
 import Theme from '../../Theme';
@@ -17,6 +17,10 @@ export interface ButtonRoundedProps {
   colorDisableText?: string;
   isInitialEnabled?: boolean;
   style?: StyleProp<ViewStyle>;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
+  onPressIn?: ((event: GestureResponderEvent) => void) | undefined;
+  onPressOut?: ((event: GestureResponderEvent) => void) | undefined;
+  onLongPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
 
@@ -27,8 +31,8 @@ export default (props: ButtonRoundedProps) => (
     colorEnableButton={Theme.Colors.buttons.default.rounded.enabledBackground}
     colorDisableIcon={Theme.Colors.buttons.default.rounded.disabledIcon}
     colorEnableIcon={Theme.Colors.buttons.default.rounded.enabledIcon}
-    style={[styles.roundedButton, props.style]}
     {...props}
+    style={[styles.roundedButton, props.style]}
     text={undefined}
   />
 );
