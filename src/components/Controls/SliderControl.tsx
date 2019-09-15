@@ -28,6 +28,7 @@ export default class SliderControl extends React.Component<SliderControlProps> {
   handlePressIn() {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.sliders.default.pressIn.toValue,
+      useNativeDriver: true,
     }).start();
   }
 
@@ -36,6 +37,7 @@ export default class SliderControl extends React.Component<SliderControlProps> {
       toValue: Theme.Animations.sliders.default.pressOut.toValue,
       friction: Theme.Animations.sliders.default.pressOut.friction,
       tension: Theme.Animations.sliders.default.pressOut.tension,
+      useNativeDriver: true,
     }).start();
   }
 

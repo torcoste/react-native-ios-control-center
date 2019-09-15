@@ -39,6 +39,7 @@ export default class ButtonRectangled extends React.Component<ButtonRectangledPr
   handlePressIn() {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.buttons.default.rectangled.pressIn.toValue,
+      useNativeDriver: true,
     }).start();
   }
 
@@ -47,6 +48,7 @@ export default class ButtonRectangled extends React.Component<ButtonRectangledPr
       toValue: Theme.Animations.buttons.default.rectangled.pressOut.toValue,
       friction: Theme.Animations.buttons.default.rectangled.pressOut.friction,
       tension: Theme.Animations.buttons.default.rectangled.pressOut.tension,
+      useNativeDriver: true,
     }).start();
   }
 

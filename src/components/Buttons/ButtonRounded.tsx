@@ -31,8 +31,8 @@ export default (props: ButtonRoundedProps) => (
     colorEnableButton={Theme.Colors.buttons.default.rounded.enabledBackground}
     colorDisableIcon={Theme.Colors.buttons.default.rounded.disabledIcon}
     colorEnableIcon={Theme.Colors.buttons.default.rounded.enabledIcon}
-    style={[styles.roundedButton, props.style]}
     {...props}
+    style={[styles.roundedButton, props.style]}
     text={undefined}
   />
 );

@@ -26,7 +26,7 @@ export default class HomeScreen extends React.Component<ScreenProps> {
     return (
       <ImageBackground
         style={styles.backgroundImage}
-        blurRadius={3}
+        blurRadius={10}
         source={Theme.Images.backgroundImage}>
         <View style={styles.controlsBoardWrapper}>
           <Row>

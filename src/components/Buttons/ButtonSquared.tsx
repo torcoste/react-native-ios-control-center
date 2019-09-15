@@ -38,6 +38,7 @@ export default class ButtonSquared extends React.Component<ButtonSquaredProps> {
   handlePressIn() {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.buttons.default.squared.pressIn.toValue,
+      useNativeDriver: true,
     }).start();
   }
 
@@ -46,6 +47,7 @@ export default class ButtonSquared extends React.Component<ButtonSquaredProps> {
       toValue: Theme.Animations.buttons.default.squared.pressOut.toValue,
       friction: Theme.Animations.buttons.default.squared.pressOut.friction,
       tension: Theme.Animations.buttons.default.squared.pressOut.tension,
+      useNativeDriver: true,
     }).start();
   }
 

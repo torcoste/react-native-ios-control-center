@@ -7,11 +7,15 @@ export interface ITheme {
   };
 
   Indents: {
+    xxxl: number;
+    xxl: number;
+    xl: number;
     lg: number;
     md: number;
     sm: number;
     dynamic: {
       sliderControlIcon: number;
+      buttonRoundedWithCaptionMargin: number;
     };
   };
 
@@ -45,15 +49,21 @@ export interface ITheme {
       button: {
         default: number;
       };
+      songTitle: {
+        firstLine: number;
+        secondLine: number;
+      };
     };
   };
 
   Images: {
     backgroundImage: ImageSourcePropType;
+    iTunesIcon: ImageSourcePropType;
   };
 
   Colors: {
     transparent: string;
+    semiWhite: string;
     buttons: {
       default: {
         squared: {
@@ -108,6 +118,11 @@ export interface ITheme {
     sliderControl: {
       background: string;
       icon: string;
+    };
+    screens: {
+      musicControl: {
+        songImageWrapper: string;
+      };
     };
   };
 
@@ -171,6 +186,130 @@ export interface ITheme {
             toValue: number;
             friction: number;
             tension: number;
+          };
+        };
+      };
+    };
+    screens: {
+      musicControl: {
+        initial: {
+          scaleValue: number;
+          translateYValue: number;
+          translateXValue: number;
+          backgroundOpacityValue: number;
+          containerOpacityValue: number;
+        };
+        onMount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+        onUnmount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+      };
+      networkControl: {
+        initial: {
+          scaleValue: number;
+          translateYValue: number;
+          translateXValue: number;
+          backgroundOpacityValue: number;
+          containerOpacityValue: number;
+        };
+        onMount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+        onUnmount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
           };
         };
       };

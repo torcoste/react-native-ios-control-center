@@ -13,11 +13,15 @@ class Theme {
   };
 
   readonly Indents: ITheme['Indents'] = {
+    xxxl: 50,
+    xxl: 24,
+    xl: 20,
     lg: 20,
     md: 16,
     sm: 8,
     dynamic: {
       sliderControlIcon: 0.045 * this.Dimensions.screenWidth,
+      buttonRoundedWithCaptionMargin: 0.07 * this.Dimensions.screenWidth,
     },
   };
 
@@ -45,15 +49,21 @@ class Theme {
       button: {
         default: 0.036 * this.Dimensions.screenWidth,
       },
+      songTitle: {
+        firstLine: 12,
+        secondLine: 16,
+      },
     },
   };
 
   readonly Images: ITheme['Images'] = {
-    backgroundImage: require('./assets/images/backgroundImage.jpg'),
+    backgroundImage: require('./assets/images/backgroundImage2.jpg'),
+    iTunesIcon: require('./assets/images/itunes.png'),
   };
 
   readonly Colors: ITheme['Colors'] = {
     transparent: 'rgba(0, 0, 0, 0)',
+    semiWhite: 'rgba(255, 255, 255, 0.5)',
     buttons: {
       default: {
         squared: {
@@ -109,6 +119,11 @@ class Theme {
       background: 'rgba(0, 0, 0, 0.7)',
       icon: 'rgba(255, 255, 255, 0.8)',
     },
+    screens: {
+      musicControl: {
+        songImageWrapper: 'rgba(255, 255, 255, 0.2)',
+      }
+    }
   };
 
   readonly Animations: ITheme['Animations'] = {
@@ -125,8 +140,8 @@ class Theme {
         },
       },
     },
-
-    sliders: { // TODO: another animation
+    sliders: {
+      // TODO: another animation
       default: {
         initialValue: 1,
         pressIn: {
@@ -142,7 +157,8 @@ class Theme {
 
     buttons: {
       default: {
-        rounded: { // TODO: another animation
+        rounded: {
+          // TODO: another animation
           initialValue: 1,
           pressIn: {
             toValue: 1.2,
@@ -173,6 +189,130 @@ class Theme {
             toValue: 1,
             friction: 2,
             tension: 10,
+          },
+        },
+      },
+    },
+    screens: {
+      musicControl: {
+        initial: {
+          scaleValue: 0.45,
+          translateYValue: -32,
+          translateXValue: 85,
+          backgroundOpacityValue: 0,
+          containerOpacityValue: 0,
+        },
+        onMount: {
+          scale: {
+            toValue: 1,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: 0,
+              duration: 250,
+            },
+            X: {
+              toValue: 0,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 1,
+              duration: 100,
+            },
+            container: {
+              toValue: 1,
+              duration: 50,
+            },
+          },
+        },
+        onUnmount: {
+          scale: {
+            toValue: 0.36,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: -32, // android: -155 // X: -32 // 5s: -82
+              duration: 250,
+            },
+            X: {
+              toValue: 85,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 0,
+              duration: 150,
+            },
+            container: {
+              toValue: 0,
+              duration: 500,
+            },
+          },
+        },
+      },
+      networkControl: {
+        initial: {
+          scaleValue: 0.38,
+          translateYValue: -32,
+          translateXValue: -85,
+          backgroundOpacityValue: 0,
+          containerOpacityValue: 0,
+        },
+        onMount: {
+          scale: {
+            toValue: 1,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: 0,
+              duration: 250,
+            },
+            X: {
+              toValue: 0,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 1,
+              duration: 100,
+            },
+            container: {
+              toValue: 1,
+              duration: 50,
+            },
+          },
+        },
+        onUnmount: {
+          scale: {
+            toValue: 0.32,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: -32,
+              duration: 250,
+            },
+            X: {
+              toValue: -85,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 0,
+              duration: 150,
+            },
+            container: {
+              toValue: 0,
+              duration: 500,
+            },
           },
         },
       },

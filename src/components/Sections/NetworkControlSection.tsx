@@ -25,6 +25,7 @@ export default class NetworkControlSection extends React.Component<Props> {
   handlePressIn() {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.sections.default.pressIn.toValue,
+      useNativeDriver: true,
     }).start();
   }
 
@@ -33,6 +34,7 @@ export default class NetworkControlSection extends React.Component<Props> {
       toValue: Theme.Animations.sections.default.pressOut.toValue,
       friction: Theme.Animations.sections.default.pressOut.friction,
       tension: Theme.Animations.sections.default.pressOut.tension,
+      useNativeDriver: true,
     }).start();
   }
   
