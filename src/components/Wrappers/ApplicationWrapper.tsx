@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Application from '../../types/Application';
 
 export default (

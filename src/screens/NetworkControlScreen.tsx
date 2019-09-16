@@ -5,11 +5,11 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from 'react-native';
-
 import {ScreenProps} from '../types/Application.d';
-import Theme from '../Theme';
+
 import ButtonRoundedWithCaption from '../components/Buttons/ButtonRoundedWithCaption';
 import Row from '../components/Wrappers/Row';
+import Theme from '../Theme';
 
 export default class NetworkControlScreen extends React.Component<ScreenProps> {
   animatedScaleValue: Animated.Value | Animated.ValueXY;

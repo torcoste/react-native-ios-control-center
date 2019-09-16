@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 
 import ButtonRounded from '../Buttons/ButtonRounded';
-import Theme from '../../Theme';
 import Row from '../Wrappers/Row';
+import Theme from '../../Theme';
 
 interface Props extends TouchableWithoutFeedbackProps {}
 

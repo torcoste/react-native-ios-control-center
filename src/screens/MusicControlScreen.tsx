@@ -8,10 +8,10 @@ import {
   Image,
 } from 'react-native';
 import {ScreenProps} from '../types/Application.d';
-
-import Theme from '../Theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
 import Row from '../components/Wrappers/Row';
+import Theme from '../Theme';
 
 export default class MusicControlScreen extends React.Component<ScreenProps> {
   animatedScaleValue: Animated.Value | Animated.ValueXY;
