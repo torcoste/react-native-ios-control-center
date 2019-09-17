@@ -28,8 +28,6 @@ export interface ButtonSquaredProps {
 export default class ButtonSquared extends React.Component<ButtonSquaredProps> {
   constructor(props: ButtonSquaredProps) {
     super(props);
-    this.handlePressIn = this.handlePressIn.bind(this);
-    this.handlePressOut = this.handlePressOut.bind(this);
     this.animatedScaleValue = new Animated.Value(
       Theme.Animations.buttons.default.squared.initialValue,
     );
@@ -37,14 +35,14 @@ export default class ButtonSquared extends React.Component<ButtonSquaredProps> {
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
 
-  handlePressIn() {
+  handlePressIn = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.buttons.default.squared.pressIn.toValue,
       useNativeDriver: true,
     }).start();
   }
 
-  handlePressOut() {
+  handlePressOut = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.buttons.default.squared.pressOut.toValue,
       friction: Theme.Animations.buttons.default.squared.pressOut.friction,

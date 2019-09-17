@@ -16,8 +16,6 @@ interface Props extends TouchableWithoutFeedbackProps {}
 export default class NetworkControlSection extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-    this.handlePressIn = this.handlePressIn.bind(this);
-    this.handlePressOut = this.handlePressOut.bind(this);
     this.animatedScaleValue = new Animated.Value(
       Theme.Animations.sections.default.initialValue,
     );
@@ -25,14 +23,14 @@ export default class NetworkControlSection extends React.Component<Props> {
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
 
-  handlePressIn() {
+  handlePressIn = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.sections.default.pressIn.toValue,
       useNativeDriver: true,
     }).start();
   }
 
-  handlePressOut() {
+  handlePressOut = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.sections.default.pressOut.toValue,
       friction: Theme.Animations.sections.default.pressOut.friction,

@@ -31,8 +31,6 @@ export default class ButtonRectangled extends React.Component<
 > {
   constructor(props: ButtonRectangledProps) {
     super(props);
-    this.handlePressIn = this.handlePressIn.bind(this);
-    this.handlePressOut = this.handlePressOut.bind(this);
     this.animatedScaleValue = new Animated.Value(
       Theme.Animations.buttons.default.rectangled.initialValue,
     );
@@ -40,21 +38,21 @@ export default class ButtonRectangled extends React.Component<
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
 
-  handlePressIn() {
+  handlePressIn = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.buttons.default.rectangled.pressIn.toValue,
       useNativeDriver: true,
     }).start();
-  }
+  };
 
-  handlePressOut() {
+  handlePressOut = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.buttons.default.rectangled.pressOut.toValue,
       friction: Theme.Animations.buttons.default.rectangled.pressOut.friction,
       tension: Theme.Animations.buttons.default.rectangled.pressOut.tension,
       useNativeDriver: true,
     }).start();
-  }
+  };
 
   render() {
     const {style} = this.props;

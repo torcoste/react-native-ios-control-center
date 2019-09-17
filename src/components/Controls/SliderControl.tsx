@@ -16,8 +16,6 @@ export interface SliderControlProps extends TouchableWithoutFeedbackProps {
 export default class SliderControl extends React.Component<SliderControlProps> {
   constructor(props: SliderControlProps) {
     super(props);
-    this.handlePressIn = this.handlePressIn.bind(this);
-    this.handlePressOut = this.handlePressOut.bind(this);
     this.animatedScaleValue = new Animated.Value(
       Theme.Animations.sliders.default.initialValue,
     );
@@ -25,14 +23,14 @@ export default class SliderControl extends React.Component<SliderControlProps> {
 
   animatedScaleValue: Animated.Value | Animated.ValueXY;
 
-  handlePressIn() {
+  handlePressIn = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.sliders.default.pressIn.toValue,
       useNativeDriver: true,
     }).start();
   }
 
-  handlePressOut() {
+  handlePressOut = () => {
     Animated.spring(this.animatedScaleValue, {
       toValue: Theme.Animations.sliders.default.pressOut.toValue,
       friction: Theme.Animations.sliders.default.pressOut.friction,
